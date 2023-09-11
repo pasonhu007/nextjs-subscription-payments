@@ -1,16 +1,20 @@
+'use client';
 import Link from 'next/link';
-import { createServerSupabaseClient } from '@/app/supabase-server';
-
+import { usePathname } from 'next/navigation';
 import Logo from '@/components/icons/Logo';
 import SignOutButton from './SignOutButton';
 
 import s from './Navbar.module.css';
 
-export default async function Navbar() {
-  const supabase = createServerSupabaseClient();
-  const {
-    data: { user }
-  } = await supabase.auth.getUser();
+interface Props {
+  user: any;
+}
+
+export default async function Navbar({user}: Props) {
+  const pathName = usePathname();
+  if (pathName === '/bot/bot-chat') {
+    return (<></>)
+  }
 
   return (
     <nav className={s.root}>
@@ -30,6 +34,11 @@ export default async function Navbar() {
               {user && (
                 <Link href="/account" className={s.link}>
                   Account
+                </Link>
+              )}
+              {user && (
+                <Link href="/bot" className={s.link} prefetch={false}>
+                  myBot
                 </Link>
               )}
             </nav>

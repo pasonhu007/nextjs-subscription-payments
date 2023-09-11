@@ -2,6 +2,9 @@ import SupabaseProvider from './supabase-provider';
 import Footer from '@/components/ui/Footer';
 import Navbar from '@/components/ui/Navbar';
 import { PropsWithChildren } from 'react';
+import { ReduxProvider } from './redux-provider';
+import { createServerSupabaseClient } from '@/app/supabase-server';
+
 import 'styles/main.css';
 
 const meta = {
@@ -39,24 +42,30 @@ export const metadata = {
   }
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   // Layouts must accept a children prop.
   // This will be populated with nested layouts or pages
   children
 }: PropsWithChildren) {
+  const supabase = createServerSupabaseClient();
+  const {
+    data: { user }
+  } = await supabase.auth.getUser();
+
   return (
     <html lang="en">
-      <body className="bg-black loading">
+      <body className="loading">
         <SupabaseProvider>
-          {/* @ts-expect-error */}
-          <Navbar />
-          <main
-            id="skip"
-            className="min-h-[calc(100dvh-4rem)] md:min-h[calc(100dvh-5rem)]"
-          >
-            {children}
-          </main>
-          <Footer />
+          <ReduxProvider>
+            <Navbar user={user}/>
+            <main
+              id="skip"
+              className="min-h-[calc(100dvh-4rem)] md:min-h[calc(100dvh-5rem)]"
+            >
+              {children}
+            </main>
+            <Footer />
+          </ReduxProvider>
         </SupabaseProvider>
       </body>
     </html>

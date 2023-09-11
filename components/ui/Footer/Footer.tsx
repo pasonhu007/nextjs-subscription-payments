@@ -1,9 +1,15 @@
+'use client';
 import Link from 'next/link';
 
 import Logo from '@/components/icons/Logo';
 import GitHub from '@/components/icons/GitHub';
+import { usePathname } from 'next/navigation';
 
 export default function Footer() {
+  const pathName = usePathname()
+  if (pathName === '/bot/bot-chat') {
+    return (<></>)
+  }
   return (
     <footer className="mx-auto max-w-[1920px] px-6 bg-zinc-900">
       <div className="grid grid-cols-1 gap-8 py-12 text-white transition-colors duration-150 border-b lg:grid-cols-12 border-zinc-600 bg-zinc-900">

@@ -34,6 +34,19 @@ export async function getUserDetails() {
   }
 }
 
+export async function getBotDetails() {
+  const supabase = createServerSupabaseClient();
+  try {
+    const { data: botDetails } = await supabase
+      .from('bots')
+      .select('*')
+    return botDetails;
+  } catch (error) {
+    console.error('Error:', error);
+    return null;
+  }
+}
+
 export async function getSubscription() {
   const supabase = createServerSupabaseClient();
   try {

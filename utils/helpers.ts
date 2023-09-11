@@ -39,6 +39,31 @@ export const postData = async ({
   return res.json();
 };
 
+export const postDataV2 = async ({
+  url,
+  data
+}: {
+  url: string;
+  data?: FormData;
+}) => {
+  console.log('posting V2,', url, data);
+
+  const res = await fetch(url, {
+    method: 'POST',
+    // headers: new Headers({ 'Content-Type': 'application/json' }),
+    // credentials: 'same-origin',
+    body: data
+  });
+
+  if (!res.ok) {
+    console.log('Error in postData', { url, data, res });
+
+    throw Error(res.statusText);
+  }
+
+  return res.json();
+};
+
 export const toDateTime = (secs: number) => {
   var t = new Date('1970-01-01T00:30:00Z'); // Unix epoch start.
   t.setSeconds(secs);

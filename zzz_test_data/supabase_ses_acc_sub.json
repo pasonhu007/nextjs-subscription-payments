@@ -1,0 +1,81 @@
+session {
+    "expires_at": 1691548166,
+    "expires_in": 3275,
+    "token_type": "bearer",
+    "access_token": "eyJhbGciOiJIUzI1NiIsImtpZCI6Iis3bGM5SDlLb0syRElYZXAiLCJ0eXAiOiJKV1QifQ.eyJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNjkxNTQ4MTY2LCJpYXQiOjE2OTE1NDQ1NjYsImlzcyI6Imh0dHBzOi8vbHFvc3dsa3VydXZyd21nZ2lmYXkuc3VwYWJhc2UuY28vYXV0aC92MSIsInN1YiI6ImU0NDQ3NjAwLTgzOTEtNGI3Yy04ZmRhLWU2MTI2YjBhN2ZiNCIsImVtYWlsIjoicGFzb24uaHVAZ21haWwuY29tIiwicGhvbmUiOiIiLCJhcHBfbWV0YWRhdGEiOnsicHJvdmlkZXIiOiJlbWFpbCIsInByb3ZpZGVycyI6WyJlbWFpbCJdfSwidXNlcl9tZXRhZGF0YSI6e30sInJvbGUiOiJhdXRoZW50aWNhdGVkIiwiYWFsIjoiYWFsMSIsImFtciI6W3sibWV0aG9kIjoibWFnaWNsaW5rIiwidGltZXN0YW1wIjoxNjkxNTQ0NTY2fV0sInNlc3Npb25faWQiOiI4YzdjNjVmOC0yNGM4LTRjMDEtYjQ3Yi1hOTRmZGEyZTNhNzkifQ.YrQHnjNsWNLTIx4Cv7dI4Vw5fp4-kthJs9zyI3YeqXA",
+    "refresh_token": "tDlSsPERr5t27D0lQm9rUA",
+    "provider_token": null,
+    "provider_refresh_token": null,
+    "user": {
+        "id": "e4447600-8391-4b7c-8fda-e6126b0a7fb4",
+        "factors": null,
+        "aud": "authenticated",
+        "iat": 1691544566,
+        "iss": "https://lqoswlkuruvrwmggifay.supabase.co/auth/v1",
+        "email": "pason.hu@gmail.com",
+        "phone": "",
+        "app_metadata": {
+            "provider": "email",
+            "providers": [
+                "email"
+            ]
+        },
+        "user_metadata": {},
+        "role": "authenticated",
+        "aal": "aal1",
+        "amr": [
+            {
+                "method": "magiclink",
+                "timestamp": 1691544566
+            }
+        ],
+        "session_id": "8c7c65f8-24c8-4c01-b47b-a94fda2e3a79"
+    }
+}
+userDetails {
+    "id": "e4447600-8391-4b7c-8fda-e6126b0a7fb4",
+    "full_name": null,
+    "avatar_url": null,
+    "billing_address": null,
+    "payment_method": null
+}
+subscription {
+    "id": "sub_1Nc5KrHkIEyjuF5tUdFyiU1V",
+    "user_id": "e4447600-8391-4b7c-8fda-e6126b0a7fb4",
+    "status": "active",
+    "metadata": {},
+    "price_id": "price_1NbduZHkIEyjuF5t610rGPxe",
+    "quantity": 1,
+    "cancel_at_period_end": false,
+    "created": "2023-08-06T12:11:25+00:00",
+    "current_period_start": "2023-08-06T12:11:25+00:00",
+    "current_period_end": "2023-09-06T12:11:25+00:00",
+    "ended_at": null,
+    "cancel_at": null,
+    "canceled_at": null,
+    "trial_start": null,
+    "trial_end": null,
+    "prices": {
+        "id": "price_1NbduZHkIEyjuF5t610rGPxe",
+        "product_id": "prod_OOQmmfYd4vGDoB",
+        "active": true,
+        "description": null,
+        "unit_amount": 1000,
+        "currency": "usd",
+        "type": "recurring",
+        "interval": "month",
+        "interval_count": 1,
+        "trial_period_days": null,
+        "metadata": {},
+        "products": {
+            "id": "prod_OOQmmfYd4vGDoB",
+            "active": true,
+            "name": "Hobby13",
+            "description": "Hobby product description Hobby13",
+            "image": null,
+            "metadata": {
+                "ccc": "ddd"
+            }
+        }
+    }
+}

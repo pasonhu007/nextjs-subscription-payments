@@ -31,6 +31,31 @@ export interface Database {
           }
         ]
       }
+      bots: {
+        Row: {
+          id: string
+          user_id: string
+          name: string
+        }
+        Insert: {
+          id?: string
+          user_id: string
+          name: string
+        }
+        Update: {
+          id?: string
+          user_id?: string
+          name: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "bots_user_id_fkey"
+            columns: ["user_id"]
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
       prices: {
         Row: {
           active: boolean | null

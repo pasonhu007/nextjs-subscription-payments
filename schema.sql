@@ -137,6 +137,15 @@ create table subscriptions (
 alter table subscriptions enable row level security;
 create policy "Can only view own subs data." on subscriptions for select using (auth.uid() = user_id);
 
+create table bots (
+  id UUID DEFAULT uuid_generate_v4() primary key,
+  user_id uuid references auth.users not null,
+  name varchar(255) NOT NULL
+);
+alter table bots enable row level security;
+create policy "Can only view own bots data." on bots for select using (auth.uid() = user_id);
+create policy "Can insert own bot data." on bots for insert with check (auth.uid() = user_id);
+
 /**
  * REALTIME SUBSCRIPTIONS
  * Only allow realtime listening on public tables.
